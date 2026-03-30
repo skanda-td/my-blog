@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:wght@400;500&display=swap');
+
+/* =====================
+   BASE
+===================== */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Merriweather', serif;
+  line-height: 1.7;
+  font-size: 16px;
+
+  width: 100%;                 /* ✅ FIX */
+  max-width: 720px;
+  margin: 0 auto;              /* ✅ FIX */
+  padding: 20px;
+
+  background: #f8f6f1;
+  color: #111;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* =====================
+   TYPOGRAPHY
+===================== */
+h1, .nav, .logo, .card-title, .article-title {
+  font-family: 'Inter', sans-serif;
+}
+
+h1 {
+  font-size: clamp(22px, 4vw, 28px);  /* ✅ responsive */
+  margin-bottom: 8px;
+}
+
+/* =====================
+   NAV
+===================== */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap; /* ✅ FIX */
+  gap: 8px;
+}
+
+.nav a {
+  margin-left: 12px;
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+}
+
+.nav a:hover {
+  color: #000;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  color: #111;
+}
+
+/* =====================
+   MAIN
+===================== */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* =====================
+   CARD
+===================== */
+.card-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  padding: 16px;
+  border-radius: 14px;
+  background: #fffefb;
+  border: 1px solid #e8e6e1;
+  transition: all 0.25s ease;
+}
+
+.card:hover {
+  border-color: #dcdad4;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.meta {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #777;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =====================
+   SEARCH
+===================== */
+.search-section {
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.search-row input {
+  width: 100%;
+  padding: 14px;
+  font-size: 14px;
+  background: #fffefb;
+  border: 1px solid #e8e6e1;
+  border-radius: 12px;
+  outline: none;
+}
+
+.search-row input:focus {
+  border-color: #dcdad4;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+/* SUGGESTIONS */
+.suggestions {
+  position: absolute;
+  top: 52px;
+  left: 0;
+  right: 0;
+  background: #fffefb;
+  border: 1px solid #e8e6e1;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.suggestions div {
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.suggestions div:hover {
+  background: #f5f3ee;
+}
+
+/* =====================
+   ARTICLES
+===================== */
+.articles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.article-link {
+  display: block;
+  padding: 16px;
+  background: #fffefb;
+  border: 1px solid #e8e6e1;
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s ease;
+}
+
+.article-link:hover {
+  border-color: #dcdad4;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.article-title {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.article-meta {
+  font-size: 13px;
+  color: #777;
+  margin-top: 4px;
+}
+
+/* =====================
+   ARTICLE BODY
+===================== */
+.article-content {
+  text-align: justify;
+  line-height: 1.8;
+  hyphens: auto;
+  word-spacing: 0.04em;
+}
+
+/* =====================
+   FILTER
+===================== */
+.filter-section {
+  margin-bottom: 12px;
+}
+
+.filter-section select {
+  width: 100%;                         /* ✅ FIX */
+  padding: 12px;
+  background: #fffefb;
+  border: 1px solid #e8e6e1;          /* ✅ FIX (missing 'solid') */
+  border-radius: 12px;
+  font-size: 14px;
+  color: #111;
+  outline: none;
+}
+
+.filter-section select:focus {
+  border-color: #dcdad4;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+/* =====================
+   PAGINATION
+===================== */
+.pagination {
+  display: flex;
+  flex-wrap: wrap;     /* ✅ FIX */
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #e5e3de;
+  background: #fffefb;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #f5f3ee;
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 14px;
+  color: #555;
+}
+
+/* =====================
+   iPhone 15 (≤430px)
+===================== */
+@media (max-width: 430px) {
+
+  body {
+    padding: 14px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .card,
+  .article-link {
+    padding: 14px;
+  }
+
+  .card-title,
+  .article-title {
+    font-size: 16px;
+  }
+
+  .meta,
+  .article-meta {
+    font-size: 12px;
+  }
+
+  .search-row input {
+    font-size: 13px;
+    padding: 12px;
+  }
+}
+
+/* =====================
+   iPad 11 (768–1024px)
+===================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  body {
+    padding: 22px;
+  }
+
+  .card,
+  .article-link {
+    padding: 18px;
+  }
+
+  .filter-section select {
+    width: 200px;
+  }
+}

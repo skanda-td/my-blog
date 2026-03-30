@@ -1,11 +1,53 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+import Filters from '../components/Filters.jsx';
+import { getCollection } from 'astro:content';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const articles = await getCollection('articles');
+
+const latest = articles.sort(
+  (a, b) => new Date(b.data.date) - new Date(a.data.date)
+)[0];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<head>
+  <title> Reflections </title>
+</head>
+
+<header class="nav">
+  <h2>Reflections</h2>
+  <nav>
+    <a href="/about">About</a>
+  </nav>
+</header>
+
+<main class="page">
+
+  <div class="container">
+
+    <!-- Latest -->
+    <div class="card-group">
+      <a href={`/articles/${latest.id}`} class="card-link">
+        <div class="card">
+          <h3>Latest</h3>
+          <div class="card-title">{latest.data.title}</div>
+          <p class="meta">
+          {new Date(latest.data.date).toLocaleDateString('en-GB', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+          })}
+        </p>
+        </div>
+      </a>
+    </div>
+
+    <!-- Articles -->
+    <section class="articles-section">
+      <h3>Articles</h3>
+      <Filters client:load articles={articles} />
+    </section>
+
+  </div>
+
+</main>

@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+import { getCollection } from 'astro:content';
+
+const articles = await getCollection('articles');
+const totalArticles = articles.length;
+---
+
+<head>
+  <title> Reflections </title>
+</head>
+
+<header class="nav">
+  <h2>Reflections</h2>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+  </nav>
+</header>
+
+<p>
+  Flibber flabber snorple drim, the quixly zorbin floats beyond trandle loops where mimsy thoughts collide with brivver echoes, creating a swirl of half-formed notions that ripple through the silent hum of imaginary constructs.
+</p>
+
+<!-- ✅ COUNT AFTER BODY -->
+<p style="font-weight: 500;">
+  Total Articles: {totalArticles}
+</p>
+
+<p>
+  Contact Email : 
+  <a href="mailto:yourname@email.com" style="font-weight:600;">
+    yourname@email.com
+  </a>
+</p>
