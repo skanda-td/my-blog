@@ -4,17 +4,20 @@ import { getCollection } from 'astro:content';
 
 const articles = await getCollection('articles');
 const totalArticles = articles.length;
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <head>
-  <title> Reflections </title>
+  <title>Reflections</title>
 </head>
 
 <header class="nav">
   <h2>Reflections</h2>
   <nav>
-    <a href="/my-blog">Home</a>
-    <a href="/my-blog/about">About</a>
+    <!-- ✅ FIXED -->
+    <a href={base}>Home</a>
+    <a href={`${base}about`}>About</a>
   </nav>
 </header>
 
