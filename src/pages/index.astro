@@ -17,7 +17,7 @@ const latest = articles.sort(
 <header class="nav">
   <h2>Reflections</h2>
   <nav>
-    <a href="/about">About</a>
+    <a href="/my-blog/about">About</a>
   </nav>
 </header>
 
@@ -27,7 +27,7 @@ const latest = articles.sort(
 
     <!-- Latest -->
     <div class="card-group">
-      <a href={`/articles/${latest.id}`} class="card-link">
+      <a href={`/my-blog/articles/${latest.id}`} class="card-link">
         <div class="card">
           <h3>Latest</h3>
           <div class="card-title">{latest.data.title}</div>
