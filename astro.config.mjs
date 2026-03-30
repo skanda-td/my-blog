@@ -3,7 +3,7 @@ import react from '@astrojs/react';
 
 export default defineConfig({
   site: 'https://skanda-td.github.io',
-  base: '/my-blog',                      
+  base: '/my-blog/',                      
 
   integrations: [react()],
 
